@@ -13,7 +13,7 @@ function LastFiveDays({ lastFiveDays }: Props) {
     <View style={styles.container}>
       <Text style={styles.title}>Last Five Days</Text>
 
-      <View style={styles.content}>
+      <View>
         {lastFiveDays &&
           lastFiveDays?.map((item, index) => (
             <PostImages {...item} key={index} />
@@ -31,9 +31,8 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     fontSize: 20,
-    marginBottom: 16,
+    marginVertical: 16,
   },
-  content: {},
 });
 
 export default LastFiveDays;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import { format, set, sub } from "date-fns";
+import { format, sub } from "date-fns";
 
 import Header from "../../components/Header";
 import TodayImage from "../../components/TodayImage";
@@ -44,8 +44,6 @@ function Home() {
     loadLastFiveDayImages();
   }, []);
 
-  console.log("--------------", lastFiveDays);
-
   return (
     <ScrollView style={styles.container}>
       <Header />
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    marginTop: 10,
+    backgroundColor: "rgb(20, 39, 110)",
   },
 });
 

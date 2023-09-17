@@ -1,13 +1,17 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { PostImage } from "../../types";
+import { PostImage, PostImageNav } from "../../types";
+import { useNavigation } from "@react-navigation/native";
 
 function PostImages(props: PostImage) {
+  const { navigate } = useNavigation<PostImageNav>();
+  const handlePress = () => navigate("Details", props);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.date}>{props.date}</Text>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Ver imagen</Text>
       </Pressable>
     </View>

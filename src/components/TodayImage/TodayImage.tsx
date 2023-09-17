@@ -1,14 +1,18 @@
 import React, { FC } from "react";
 import { Pressable, Image, StyleSheet, Text, View } from "react-native";
-import { PostImage } from "../../types";
+import { PostImage, PostImageNav, RootStack } from "../../types";
+import { useNavigation } from "@react-navigation/native";
 
 const TodayImage: FC<PostImage> = (props) => {
+  const { navigate } = useNavigation<PostImageNav>();
+  const handlePress = () => navigate("Details", props);
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: props.url }} style={styles.image} />
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.date}>{props.date}</Text>
-      <Pressable onPress={() => alert("Ver imagem")} style={styles.button}>
+      <Pressable onPress={handlePress} style={styles.button}>
         <Text style={styles.buttonText}>Ver imagen</Text>
       </Pressable>
     </View>
